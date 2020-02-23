@@ -1,0 +1,61 @@
+react는 라이브러리 가볍다. react Native 모바일 
+angular 프레임워크
+react는 VirtualDom사용한다. 
+
+JSX 자바스크립트 형식에서 html 작성할 수 있다
+
+let style = { color:'aqua', };  <div style={style}></div>  {/* .. */} 주석 (컨테이너 안에)
+
+<h1>Hello {this.props.name}</h1>    <CodeLab name="taewon">
+
+//필수요건 설정
+import PropTypes from 'prop-types';
+CodeLab.propTypes = {
+  name: PropTypes.string,
+  number:PropTypes.number.isRequired
+};
+
+//기본값 설정
+CodeLab.defaultProps = {
+  name: "UnKnown",
+  number: 12
+};
+
+//state 값
+constructor(props){
+      super(props);
+      this.state= {
+        value:0
+      };
+    }
+    handleClick = () => {
+      this.setState({
+        value:this.state.value + 1
+      })
+    }
+<button onClick={this.handleClick}>+</button>
+
+ref={(ref) => { this.nameInput2 = ref}
+this.nameInput2.focus();
+
+LifeCycleAPI
+컴포넌트를 생성 할 때는 constructor -> componentWillMount -> render -> componentDidMount 순으로 진행됩니다.
+componentWillMount // 렌더링 되기전에
+componentDidMount //렌더링 된후 , DOM 처리가능
+componentWillReceiveProps //컴포넌트의 새로운prop이 변경될때  , prop에 따라 state업데이트할때 유용
+shouldComponentUpdate //컴포넌트가 업데이트를 해야할지 말아야할지   return false면 반환안함
+componentWillUpdate //컴포넌트 업데이트되기전에 , setState 사용 ㄴ 무한루프
+render
+componentDidUpdate //컴포넌트 업데이트 다음에 , setState 사용 ㄴ
+componentWillUnmount //컴포넌트를 제거 할 때, Dom에서 사라진후
+
+//업데이트 목록 리로딩 되지않기 핫모듈
+import { hot } from 'react-hot-loader';
+export default hot(module)(App);
+
+webpack: 브라우저 위에서 import(require) 를 할 수 있게 해주고 자바스크립트 파일들을 하나로 합쳐줍니다
+webpack-dev-server: 별도의 서버를 구축하지 않고도 static 파일을 다루는 웹서버를 열 수 있으며 hot-loader 를 통하여 코드가 수정 될 때마다 자동으로 리로드 되게 할 수 있습니다.
+
+자바스크립트 라이브러리중, 오직 AJAX 기능만을 위하여 만들어진 라이브러리들이 있는데요, 
+그 중 유명한것들이 axios, fetch, superagent, request 등이 있습니다.
+e.stopPropagation() 은 이벤트의 “확산” 을 멈춰줍니다.
