@@ -16,8 +16,10 @@ db.colletion_name.drop(); 컬렉션제거
 
 두개이상 데이터 추가할경우 배열 형식 ( [ {"name":"a","author":"vel"} , { ... } ] )
 
-db.colletions_name.remove(criteria,[justOne]) //Document 제거
-
+db.colletions_name.remove({"author" : "Velopert"},true) //Document 제거
+db.number.find().skip() // 스킵하기
+db.people.update({name: "Charlie"},
+{$put: {skills:{$n:["angularjs","java"] } } } );
 비교연산자
 $eq 일치하는지
 $gt 주어진 값보다 큰 값
