@@ -1,15 +1,13 @@
-git init  // .git »ı¼º
+git init  // .git ìƒì„±
 
-git remote add origin (repository address) ±ê ÁÖ¼Ò
-git status  //º¸³¾ ÆÄÀÏ »óÅÂ
-git add . // Àû¿ëÀÌ ¾ÈµÈ ÆÄÀÏ ±êÀ¸·Î ¾÷µ¥ÀÌÆ®
-git commit -m "message" // Ä¿¹ÔÇÏ°í ¸Ş¼¼Áö 
-git push origin master //ÃÖÁ¾ ÆÄÀÏ¿Ã¸®±â
+git remote add origin (repository address) ê¹ƒ ì£¼ì†Œ
+git status  //ë³´ë‚¼ íŒŒì¼ ìƒíƒœ
+git add . // ì ìš©ì´ ì•ˆëœ íŒŒì¼ ê¹ƒìœ¼ë¡œ ì—…ë°ì´íŠ¸
+git commit -m "message" // ì»¤ë°‹í•˜ê³  ë©”ì„¸ì§€ 
+git push origin master //ìµœì¢… íŒŒì¼ì˜¬ë¦¬ê¸°
 
-»ó´ëÆÄÀÏ °¡Á®¿À±â
-git init remote add origin (repository address) ±ê ÁÖ¼Ò
-git pull origin master    ///  »ó´ë¹æ ÆÄÀÏ °¡Á®¿À±â
-git status
-git add .
-git commit -m "second commit"
-git push origin master
+ìƒëŒ€íŒŒì¼ ê°€ì ¸ì˜¤ê¸°
+git init remote add origin (repository address) ê¹ƒ ì£¼ì†Œ
+git pull origin master    ///  ìƒëŒ€ë°© íŒŒì¼ ê°€ì ¸ì˜¤ê¸°
+git config --global user.email "ì´ë©”ì¼ì£¼ì†Œ"
+git config --global user.name "ì´ë¦„" ì„ ì…ë ¥í•˜ì—¬ ì„¤ì •ì‹œì¼œì¤ë‹ˆë‹¤. 
