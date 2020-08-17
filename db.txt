@@ -1,0 +1,41 @@
+sql > /as sysdba;
+	username:system
+	password: 1234
+
+//계정 해제
+	conntect system/1234;
+	create user kim identified by kim;
+	grant connect, resource, create view to kim;
+	connect kim/kim;
+	show user;
+	@c:\Myungji\player.sql;  
+	describe player;
+	commit 롤백 안되게
+
+	insert into player(player_id,player_name,player_team,player_en_year,player_an_salary) values ('k1333','강감찬','기아',2008,70000000);
+타입변경 alter table player modify player_name varchar2(15);
+출력세련되게 포맷지정
+1)a 5   
+2)9999 4자리만출력
+세로사이즈
+	set linesize 300
+가로 사이즈
+	set pagesize 100
+테이블복사
+	create table baseball as select * from player;
+	
+내계정 테이블확인
+	select * from tab;
+삭제
+	drop table 테이블명;
+테이블 부분 보기 and 이름바꾸기
+	select player_name, player_team from player where player_team = 'OB';
+	select player_name "이 름", player_team "소 속" from player where player_team = 'OB';
+이중 조건
+	select * from player where player_en_year = 2012 and player_an_salary >= 45000000;
+테이블 삭제
+	 delete from player where player_name='강감찬';
+	commit; //입력시 롤백안됨
+	rollback;    //commit을 안할시 롤백하면 데이터가 살아남
+특정 데이터수정
+	update player set player_an_salary = 40000000 where player_an_salary = 70000000;
