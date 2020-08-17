@@ -1,0 +1,64 @@
+public static void main(String[] args) {
+				String id =	"tw234";
+				String passwd =	"12345";
+				String email = "dbsnas";
+				String email2 = "naver.com";
+				
+				String email3 = email + " @ " + email2;
+				
+				
+				Connection conn = null;
+				String url = "jdbc:oracle:thin:@localhost:1521:xe";
+				String user = "scott";
+				String password = "tiger";
+				PreparedStatement ppst = null;
+				Statement stmt = null;
+				ResultSet rs = null;
+				try {
+					Class.forName("oracle.jdbc.driver.OracleDriver");
+					conn = DriverManager.getConnection(url, user, password);
+            //목록입력
+//					String SQL = "insert into member values(?,?,?)";
+//					ppst = conn.prepareStatement(SQL);
+//					ppst.setString(1, id);
+//					ppst.setNString(2, passwd);
+//					ppst.setNString(3, email3);
+//					ppst.execute();
+					
+          // 목록 출력
+					String SQL = "select * from member";
+					stmt = conn.createStatement();
+					rs = stmt.executeQuery(SQL);
+					while(rs.next()) {
+						System.out.println(rs.getString(1));
+						System.out.println(rs.getString(2));
+						System.out.println(rs.getString(3));
+						System.out.println("---------------");
+					}
+					
+					//Delete
+//					String SQL = "delete from member where id = 'tw'";
+//					stmt = conn.createStatement();
+//					rs = stmt.executeQuery(SQL);
+					
+					System.out.println("실행됨");
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+					try {
+						if(rs != null)
+							rs.close();
+						if(stmt != null)
+							stmt.close();
+						
+						if(ppst != null)
+							ppst.close();
+						if(conn != null) {
+							conn.close();
+						}
+						
+					} catch (Exception e1) {
+						e1.getStackTrace();
+					}
+				}
+     }
